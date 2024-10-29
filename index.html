@@ -3,10 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>Responsive Page with Tabs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <p>Welcome to your first HTML page.</p>
+    <div class="container mt-4">
+        <!-- Top Section: Always Shown -->
+        <div class="top-section mb-4" id="topSectionContent">
+        </div>
+
+        <!-- Tabs Section -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="skills-tab" data-bs-toggle="tab" data-bs-target="#skills" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="inventory-tab" data-bs-toggle="tab" data-bs-target="#inventory" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="status-tab" data-bs-toggle="tab" data-bs-target="#status" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
+            </li>
+        </ul>
+
+        <!-- Tab Content Section -->
+        <div class="tab-content mt-3" id="myTabContent">
+            <div class="tab-pane fade show active" id="skills" role="tabpanel" aria-labelledby="skills-tab">
+                <div id="skillsContent"></div>
+            </div>
+            <div class="tab-pane fade" id="inventory" role="tabpanel" aria-labelledby="inventory-tab">
+                <div id="inventoryContent"></div>
+            </div>
+            <div class="tab-pane fade" id="status" role="tabpanel" aria-labelledby="status-tab">
+                <div id="statusContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load external HTML files into the tab content using jQuery
+        $(document).ready(function() {
+            $('#topSectionContent').load('eon4/html/character.html');
+            $('#skillsContent').load('eon4/html/skills.html');
+            $('#inventoryContent').load('eon4/html/inventory.html');
+            $('#statusContent').load('eon4/html/status.html');
+        });
+    </script>
 </body>
 </html>
